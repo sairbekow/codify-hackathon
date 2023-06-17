@@ -60,12 +60,12 @@ export default function Admin() {
                 <ListItemText primary='Irrigation' />
               </ListItemButton>
             </Link>
-            <Link to={AppRoutes.IRRIGATIONS_LIST}>
+            <Link to={AppRoutes.IRRIGATIONS_LIST_ADMIN}>
               <ListItemButton>
                 <ListItemText primary='Irrigations list' />
               </ListItemButton>
             </Link>
-            <Link to={AppRoutes.IRRIGATIONS_REQUESTS}>
+            <Link to={AppRoutes.IRRIGATIONS_REQUESTS_ADMIN}>
               <ListItemButton>
                 <ListItemText primary='Irrigations requests' />
               </ListItemButton>
