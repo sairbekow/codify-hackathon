@@ -12,31 +12,43 @@ import IrrigationsRequests from './pages/admin/pages/IrrigationsRequests.tsx'
 import EventList from './pages/EventList'
 import VilageHistory from './pages/VilageHistory'
 import Contacts from './pages/Contacts'
+import { getCurrentUser } from './utils/cookie'
 
 const AppRouter = () => {
+  const isUserLogged = getCurrentUser()
+  console.log(isUserLogged)
+
   return (
     <Routes>
-      <Route path={AppRoutes.HOME} element={<Home />}>
-        <Route index element={<EventList />} />
-        <Route path={AppRoutes.VILAGE_HISTORY} element={<VilageHistory />} />
-        <Route path={AppRoutes.CONTACTS} element={<Contacts />} />
-      </Route>
       <Route path={AppRoutes.SIGNIN} element={<SignIn />} />
-      <Route path={AppRoutes.ADMIN} element={<Admin />}>
-        <Route index element={<IrrigationAdmin />} />
-        <Route
-          path={AppRoutes.IRRIGATIONS_LIST}
-          element={<IrrigationsList />}
-        />
-        <Route
-          path={AppRoutes.IRRIGATIONS_REQUESTS}
-          element={<IrrigationsRequests />}
-        />
-        <Route path={AppRoutes.USERS} element={<Users />} />
-        <Route path={AppRoutes.REGIONS} element={<Regions />} />
-        <Route path={AppRoutes.PAYMENTS} element={<Payments />} />
-      </Route>
-      <Route path='*' element={<h1 className='container'>404</h1>} />
+
+      {isUserLogged && (
+        <>
+          <Route path={AppRoutes.HOME} element={<Home />}>
+            <Route index element={<EventList />} />
+            <Route
+              path={AppRoutes.VILAGE_HISTORY}
+              element={<VilageHistory />}
+            />
+            <Route path={AppRoutes.CONTACTS} element={<Contacts />} />
+          </Route>
+          <Route path={AppRoutes.ADMIN} element={<Admin />}>
+            <Route index element={<IrrigationAdmin />} />
+            <Route
+              path={AppRoutes.IRRIGATIONS_LIST}
+              element={<IrrigationsList />}
+            />
+            <Route
+              path={AppRoutes.IRRIGATIONS_REQUESTS}
+              element={<IrrigationsRequests />}
+            />
+            <Route path={AppRoutes.USERS} element={<Users />} />
+            <Route path={AppRoutes.REGIONS} element={<Regions />} />
+            <Route path={AppRoutes.PAYMENTS} element={<Payments />} />
+          </Route>
+          <Route path='*' element={<h1 className='container'>404</h1>} />
+        </>
+      )}
     </Routes>
   )
 }

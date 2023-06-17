@@ -1,6 +1,6 @@
 export enum AppRoutes {
-  HOME = '/',
-  SIGNIN = '/signin',
+  SIGNIN = '/',
+  HOME = '/home',
   ADMIN = '/admin',
   REGIONS = 'regions',
   PAYMENTS = 'payments',
@@ -11,4 +11,7 @@ export enum AppRoutes {
   VACANCIES = 'vacancies',
   IRRIGATIONS_LIST = 'irrigations-list',
   IRRIGATIONS_REQUESTS = 'irrigations-requests'
+}
+
+export enum QueryPath {
 }
