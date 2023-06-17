@@ -2,7 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import Card from '../components/Card'
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+  padding: 30px;
+`
 
 const Title = styled.h2`
   font-size: 20px;

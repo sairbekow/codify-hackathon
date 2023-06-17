@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Wrapper = styled.div``
-
-const Title = styled.h2`
+const Wrapper = styled.div`
+  
+`
+const Title = styled.div`
   font-size: 20px;
 `
 const Text = styled.div`
