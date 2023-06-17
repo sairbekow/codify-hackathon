@@ -14,6 +14,7 @@ import VilageHistory from './pages/VilageHistory'
 import Contacts from './pages/Contacts'
 import News from './pages/News.tsx'
 import Employees from "./pages/Employees.tsx";
+import Irrigation from "./pages/Irrigation.tsx";
 
 const AppRouter = () => {
   return (
@@ -21,6 +22,7 @@ const AppRouter = () => {
       <Route path={AppRoutes.HOME} element={<Home />}>
         <Route index element={<EventList />} />
         <Route path={AppRoutes.NEWS_DETAIL} element={<News/>}/>
+        <Route path={AppRoutes.IRRIGATION} element={<Irrigation/>}/>
         <Route path={AppRoutes.VILAGE_HISTORY} element={<VilageHistory />} />
         <Route path={AppRoutes.CONTACTS} element={<Contacts />} />
         <Route path={AppRoutes.EMPLOYEES} element={<Employees />} />

@@ -1,6 +1,6 @@
-import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { AppRoutes } from "../data/consts.ts";
 
 const Nav = styled.nav`
   margin: 0 auto;
@@ -20,14 +20,30 @@ const Li = styled.li`
   line-height: 22px;
 `
 
+interface ILink {
+  label: string
+  href: string
+}
+
 const SideNavbar = () => {
-  const links: string[] = ['БАШКЫ', 'СУУ СУГАРУУ БӨЛҮМҮ', 'ЖАЙЫТ КОМИТЕТИ', 'СТАТИСТИКА БӨЛҮМҮ', 'ЮРИДИКАЛЫК БӨЛҮМ', 'АСКЕРДИК КАТТОО', 'ЭКОНОМИКА БӨЛҮМҮ', 'МИ «ТАЗАЛЫК»', 'ВЕТ. ДЕПАРТАМЕНТ', 'АРЫЗ-ДОО']
+  const links: ILink[] = [
+    { label: 'БАШКЫ', href: '/' },
+    { label: "СУУ СУГАРУУ БӨЛҮМҮ", href: AppRoutes.IRRIGATION },
+    { label: "ЖАЙЫТ КОМИТЕТИ", href: '/' },
+    { label: "СТАТИСТИКА БӨЛҮМҮ", href: '/' },
+    { label: "ЮРИДИКАЛЫК БӨЛҮМ", href: '/' },
+    { label: "АСКЕРДИК КАТТОО", href: '/' },
+    { label: "ЭКОНОМИКА БӨЛҮМҮ", href: '/' },
+    { label: "МИ «ТАЗАЛЫК»", href: '/'},
+    { label: "ВЕТ. ДЕПАРТАМЕНТ", href: '/' },
+    { label: "АРЫЗ-ДОО", href: '/' }
+  ]
   return (
     <Nav>
       <Ul>
-        {links.map(item => (
-          <Li key={item}>
-            <Link to='/'>{item}</Link>
+        {links.map((item) => (
+          <Li key={item.label}>
+            <Link to={item.href}>{item.label}</Link>
           </Li>
         ))}
       </Ul>
