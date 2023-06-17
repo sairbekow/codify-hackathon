@@ -12,12 +12,14 @@ import IrrigationsRequests from './pages/admin/pages/IrrigationsRequests.tsx'
 import EventList from './pages/EventList'
 import VilageHistory from './pages/VilageHistory'
 import Contacts from './pages/Contacts'
+import News from './pages/News.tsx'
 
 const AppRouter = () => {
   return (
     <Routes>
       <Route path={AppRoutes.HOME} element={<Home />}>
         <Route index element={<EventList />} />
+        <Route path={AppRoutes.NEWS_DETAIL} element={<News/>}/>
         <Route path={AppRoutes.VILAGE_HISTORY} element={<VilageHistory />} />
         <Route path={AppRoutes.CONTACTS} element={<Contacts />} />
       </Route>

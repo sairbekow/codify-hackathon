@@ -1,6 +1,7 @@
 export enum AppRoutes {
   HOME = '/',
   SIGNIN = '/signin',
+  NEWS_DETAIL = '/news/:id',
   ADMIN = '/admin',
   REGIONS = 'regions',
   PAYMENTS = 'payments',
