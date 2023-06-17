@@ -1,11 +1,18 @@
 import React from 'react'
-import MainLayout from "../components/MainLayout";
-import Sidebar from "../components/Siderbar";
+import MainLayout from '../components/MainLayout'
+import { Outlet } from 'react-router-dom'
+import styled from 'styled-components'
+
+const ContentWrapper = styled.div`
+  padding: 30px;
+`
 
 const Home = () => {
   return (
     <MainLayout>
-      <Sidebar/>
+      <ContentWrapper>
+        <Outlet />
+      </ContentWrapper>
     </MainLayout>
   )
 }

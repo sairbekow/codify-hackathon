@@ -5,4 +5,8 @@ export enum AppRoutes {
   REGIONS = 'regions',
   PAYMENTS = 'payments',
   USERS = 'users',
+  VILAGE_HISTORY = 'vilage-history',
+  EMPLOYEES = 'employees',
+  CONTACTS = 'contacts',
+  VACANCIES = 'vacancies',
 }

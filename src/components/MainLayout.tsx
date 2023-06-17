@@ -1,9 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Container } from '../styles/container'
+import Sidebar from './Siderbar'
+import MainHeader from './MainHeader'
 
 const Wrapper = styled.div`
   height: 100vh;
+  display: grid;
+  grid-template-columns: 20fr 80fr;
 `
 
 interface IMainLayout {
@@ -13,7 +16,11 @@ interface IMainLayout {
 const MainLayout = ({ children }: IMainLayout) => {
   return (
     <Wrapper>
-      <Container>{children}</Container>
+      <Sidebar />
+      <div>
+        <MainHeader />
+        {children}
+      </div>
     </Wrapper>
   )
 }
