@@ -1,6 +1,8 @@
+export const BASE_URL = 'http://localhost:5194/'
+
 export enum AppRoutes {
-  HOME = '/',
-  SIGNIN = '/signin',
+  SIGNIN = '/',
+  HOME = '/home',
   ADMIN = '/admin',
   REGIONS = 'regions',
   PAYMENTS = 'payments',
@@ -10,5 +12,9 @@ export enum AppRoutes {
   CONTACTS = 'contacts',
   VACANCIES = 'vacancies',
   IRRIGATIONS_LIST = 'irrigations-list',
-  IRRIGATIONS_REQUESTS = 'irrigations-requests'
+  IRRIGATIONS_REQUESTS = 'irrigations-requests',
+}
+
+export enum QueryPath {
+  USERS_SIGNIN = 'users/signin',
 }
