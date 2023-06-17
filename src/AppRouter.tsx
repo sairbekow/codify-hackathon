@@ -13,6 +13,7 @@ import EventList from './pages/EventList'
 import VilageHistory from './pages/VilageHistory'
 import Contacts from './pages/Contacts'
 import News from './pages/News.tsx'
+import Employees from "./pages/Employees.tsx";
 
 const AppRouter = () => {
   return (
@@ -22,16 +23,17 @@ const AppRouter = () => {
         <Route path={AppRoutes.NEWS_DETAIL} element={<News/>}/>
         <Route path={AppRoutes.VILAGE_HISTORY} element={<VilageHistory />} />
         <Route path={AppRoutes.CONTACTS} element={<Contacts />} />
+        <Route path={AppRoutes.EMPLOYEES} element={<Employees />} />
       </Route>
       <Route path={AppRoutes.SIGNIN} element={<SignIn />} />
       <Route path={AppRoutes.ADMIN} element={<Admin />}>
         <Route index element={<IrrigationAdmin />} />
         <Route
-          path={AppRoutes.IRRIGATIONS_LIST}
+          path={AppRoutes.IRRIGATIONS_LIST_ADMIN}
           element={<IrrigationsList />}
         />
         <Route
-          path={AppRoutes.IRRIGATIONS_REQUESTS}
+          path={AppRoutes.IRRIGATIONS_REQUESTS_ADMIN}
           element={<IrrigationsRequests />}
         />
         <Route path={AppRoutes.USERS} element={<Users />} />
