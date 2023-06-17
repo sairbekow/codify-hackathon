@@ -6,18 +6,26 @@ import Container from '@mui/material/Container'
 import logo from '@/assets/icons/logo.png'
 import styled from 'styled-components'
 import useLogin from '../hooks/api/useLogin'
-import { redirect, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { AppRoutes } from '../data/consts'
-import { getCurrentUser } from '../utils/cookie'
+import { setUserData } from '../store/slices/userSlice'
+import { useAppDispatch } from '../hooks/redux'
+import { useState } from 'react'
 
 const Wrapper = styled.div`
   height: 100vh;
   background-color: ${(props) => props.theme.colors.primary};
 `
 
+const ErrorMessage = styled.span`
+  color: ${props => props.theme.colors.error}
+`
+
 export default function SignIn() {
   const login = useLogin()
   const navigate = useNavigate()
+  const dispatch = useAppDispatch()
+  const [errorMessage, setErrorMessage] = useState<string>()
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -27,10 +35,18 @@ export default function SignIn() {
 
     if (!pin || !password) return
 
-    await login({
-      pin,
-      password,
-    })
+    try {
+      const response = await login({
+        pin,
+        password,
+      })
+      console.log(response)
+      dispatch(setUserData(response))
+    } catch (e) {
+      if (e.code === 401) {
+        setErrorMessage('Password is not correct')
+      }
+    }
     navigate(AppRoutes.HOME)
   }
 
@@ -82,6 +98,7 @@ export default function SignIn() {
               variant='filled'
               style={{ backgroundColor: 'white' }}
             />
+            {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
             <Button
               type='submit'
               fullWidth

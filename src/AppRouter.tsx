@@ -16,7 +16,6 @@ import { getCurrentUser } from './utils/cookie'
 
 const AppRouter = () => {
   const isUserLogged = getCurrentUser()
-  console.log(isUserLogged)
 
   return (
     <Routes>
