@@ -5,4 +5,6 @@ export enum AppRoutes {
   REGIONS = 'regions',
   PAYMENTS = 'payments',
   USERS = 'users',
+  IRRIGATIONS_LIST = 'irrigations-list',
+  IRRIGATIONS_REQUESTS = 'irrigations-requests'
 }

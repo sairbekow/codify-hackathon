@@ -1,9 +1,6 @@
-import * as React from 'react'
-import { styled, createTheme, ThemeProvider } from '@mui/material/styles'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
-import MuiDrawer from '@mui/material/Drawer'
 import Box from '@mui/material/Box'
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 import List from '@mui/material/List'
 import Typography from '@mui/material/Typography'
@@ -11,61 +8,34 @@ import Divider from '@mui/material/Divider'
 import IconButton from '@mui/material/IconButton'
 import Badge from '@mui/material/Badge'
 import Container from '@mui/material/Container'
-import Grid from '@mui/material/Grid'
-import Paper from '@mui/material/Paper'
-import MenuIcon from '@mui/icons-material/Menu'
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
 import NotificationsIcon from '@mui/icons-material/Notifications'
 import { Link, Outlet } from 'react-router-dom'
 
-import { mainListItems, secondaryListItems } from './listItems'
-
 import Drawer from './adminSidePanel'
 import AppBar from './adminNavBar'
-import ListItemIcon from '@mui/material/ListItemIcon'
-import DashboardIcon from '@mui/icons-material/Dashboard'
 import ListItemText from '@mui/material/ListItemText'
 import ListItemButton from '@mui/material/ListItemButton'
 import { AppRoutes } from '../../data/consts'
 
-const drawerWidth: number = 240
-
-// TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme()
 
 export default function Admin() {
-  const [open, setOpen] = React.useState(true)
-  const toggleDrawer = () => {
-    setOpen(!open)
-  }
-
   return (
     <ThemeProvider theme={defaultTheme}>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
-        <AppBar position='absolute' open={open}>
+        <AppBar position='absolute'>
           <Toolbar
             sx={{
               pr: '24px', // keep right padding when drawer closed
             }}>
-            <IconButton
-              edge='start'
-              color='inherit'
-              aria-label='open drawer'
-              onClick={toggleDrawer}
-              sx={{
-                marginRight: '36px',
-                ...(open && { display: 'none' }),
-              }}>
-              <MenuIcon />
-            </IconButton>
             <Typography
               component='h1'
               variant='h6'
               color='inherit'
               noWrap
               sx={{ flexGrow: 1 }}>
-              Dashboard
+              Админ панель
             </Typography>
             <IconButton color='inherit'>
               <Badge badgeContent={4} color='secondary'>
@@ -74,7 +44,7 @@ export default function Admin() {
             </IconButton>
           </Toolbar>
         </AppBar>
-        <Drawer variant='permanent' open={open}>
+        <Drawer variant='permanent'>
           <Toolbar
             sx={{
               display: 'flex',
@@ -82,46 +52,39 @@ export default function Admin() {
               justifyContent: 'flex-end',
               px: [1],
             }}>
-            <IconButton onClick={toggleDrawer}>
-              <ChevronLeftIcon />
-            </IconButton>
           </Toolbar>
           <Divider />
           <List component='nav'>
-            <ListItemButton>
-              <Link to={AppRoutes.ADMIN}>
-                <ListItemIcon>
-                  <DashboardIcon />
-                </ListItemIcon>
-                <ListItemText primary='ground' />
-              </Link>
-            </ListItemButton>
-            <ListItemButton>
-              <Link to={AppRoutes.USERS}>
-                <ListItemIcon>
-                  <DashboardIcon />
-                </ListItemIcon>
-                <ListItemText primary='users' />
-              </Link>
-            </ListItemButton>
-            <ListItemButton>
-              <Link to={AppRoutes.REGIONS}>
-                <ListItemIcon>
-                  <DashboardIcon />
-                </ListItemIcon>
-                <ListItemText primary='regions' />
-              </Link>
-            </ListItemButton>
-            <ListItemButton>
-              <Link to={AppRoutes.PAYMENTS}>
-                <ListItemIcon>
-                  <DashboardIcon />
-                </ListItemIcon>
-                <ListItemText primary='payments' />
-              </Link>
-            </ListItemButton>
-            {/*<Divider sx={{ my: 1 }} />*/}
-            {/*{secondaryListItems}*/}
+            <Link to={AppRoutes.ADMIN}>
+              <ListItemButton>
+                <ListItemText primary='Irrigation' />
+              </ListItemButton>
+            </Link>
+            <Link to={AppRoutes.IRRIGATIONS_LIST}>
+              <ListItemButton>
+                <ListItemText primary='Irrigations list' />
+              </ListItemButton>
+            </Link>
+            <Link to={AppRoutes.IRRIGATIONS_REQUESTS}>
+              <ListItemButton>
+                <ListItemText primary='Irrigations requests' />
+              </ListItemButton>
+            </Link>
+            <Link to={AppRoutes.USERS}>
+              <ListItemButton>
+                <ListItemText primary='Users' />
+              </ListItemButton>
+            </Link>
+            <Link to={AppRoutes.REGIONS}>
+              <ListItemButton>
+                <ListItemText primary='Regions' />
+              </ListItemButton>
+            </Link>
+            <Link to={AppRoutes.PAYMENTS}>
+              <ListItemButton>
+                <ListItemText primary='Payments' />
+              </ListItemButton>
+            </Link>
           </List>
         </Drawer>
         <Box
@@ -138,37 +101,6 @@ export default function Admin() {
           <Toolbar />
           <Container maxWidth='lg' sx={{ mt: 4, mb: 4 }}>
             <Outlet />
-            <Grid container spacing={3}>
-              {/* Chart */}
-              <Grid item xs={12} md={8} lg={9}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 240,
-                  }}></Paper>
-              </Grid>
-              {/* Recent Deposits */}
-              <Grid item xs={12} md={4} lg={3}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 240,
-                  }}></Paper>
-              </Grid>
-              {/* Recent Orders */}
-              <Grid item xs={12}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                  }}></Paper>
-              </Grid>
-            </Grid>
           </Container>
         </Box>
       </Box>

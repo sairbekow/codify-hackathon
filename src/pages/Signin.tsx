@@ -1,37 +1,17 @@
 import * as React from 'react'
-import Avatar from '@mui/material/Avatar'
 import Button from '@mui/material/Button'
-import CssBaseline from '@mui/material/CssBaseline'
 import TextField from '@mui/material/TextField'
-import FormControlLabel from '@mui/material/FormControlLabel'
-import Checkbox from '@mui/material/Checkbox'
-import Link from '@mui/material/Link'
-import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
-import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
-import { createTheme, ThemeProvider } from '@mui/material/styles'
+import logo from '@/assets/icons/logo.png'
+import styled from 'styled-components'
 
-function Copyright(props: any) {
-  return (
-    <Typography
-      variant='body2'
-      color='text.secondary'
-      align='center'
-      {...props}>
-      {'Copyright © '}
-      <Link color='inherit' href='https://mui.com/'>
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  )
-}
+import { grey } from '@mui/material/colors'
 
-// TODO remove, this demo shouldn't need to reset the theme.
-const defaultTheme = createTheme()
+const Wrapper = styled.div`
+  height: 100vh;
+  background-color: ${(props) => props.theme.colors.primary};
+`
 
 export default function SignIn() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -44,27 +24,29 @@ export default function SignIn() {
   }
 
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <Container component='main' maxWidth='xs'>
-        <CssBaseline />
+    <Wrapper>
+      <Container
+        component='main'
+        maxWidth='xs'
+        style={{
+          width: '100%',
+          height: '100%',
+          paddingTop: '120px',
+        }}>
         <Box
           sx={{
-            marginTop: 8,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
           }}>
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component='h1' variant='h5'>
-            Кирүү
-          </Typography>
+          <Box sx={{ maxWidth: 150, maxHeight: 150 }}>
+            <img src={logo} alt='logo' width='100%' height='100%' />
+          </Box>
           <Box
             component='form'
             onSubmit={handleSubmit}
             noValidate
-            sx={{ mt: 1 }}>
+            sx={{ mt: 10 }}>
             <TextField
               margin='normal'
               required
@@ -74,6 +56,8 @@ export default function SignIn() {
               name='email'
               autoComplete='email'
               autoFocus
+              variant='filled'
+              style={{ backgroundColor: 'white' }}
             />
             <TextField
               margin='normal'
@@ -84,17 +68,20 @@ export default function SignIn() {
               type='password'
               id='password'
               autoComplete='current-password'
+              variant='filled'
+              style={{ backgroundColor: 'white' }}
             />
             <Button
               type='submit'
               fullWidth
               variant='contained'
-              sx={{ mt: 3, mb: 2 }}>
+              size='large'
+              sx={{ mt: 3, mb: 2}}>
               Кирүү
             </Button>
           </Box>
         </Box>
       </Container>
-    </ThemeProvider>
+    </Wrapper>
   )
 }
