@@ -128,6 +128,11 @@ function fixedHeaderContent() {
 }
 
 function rowContent(_index: number, row: Data) {
+
+  const handleClick = (): void => {
+    console.log('click')
+  }
+
   return (
     <React.Fragment>
       {columns.map((column) => (
@@ -138,7 +143,7 @@ function rowContent(_index: number, row: Data) {
         </TableCell>
       ))}
       <TableCell align='center'>
-        <Button variant='contained'>Токтотуу</Button>
+        <Button onClick={() => handleClick()} variant='contained'>Токтотуу</Button>
       </TableCell>
     </React.Fragment>
   )
