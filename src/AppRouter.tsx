@@ -8,6 +8,7 @@ import Regions from './pages/admin/Regions'
 import Payments from './pages/admin/Payments'
 import EventList from './pages/EventList'
 import VilageHistory from './pages/VilageHistory'
+import Contacts from './pages/Contacts'
 
 const AppRouter = () => {
   return (
@@ -15,6 +16,7 @@ const AppRouter = () => {
       <Route path={AppRoutes.HOME} element={<Home />}>
         <Route index element={<EventList />} />
         <Route path={AppRoutes.VILAGE_HISTORY} element={<VilageHistory />} />
+        <Route path={AppRoutes.CONTACTS} element={<Contacts />} />
       </Route>
       <Route path={AppRoutes.SIGNIN} element={<SignIn />} />
       <Route path={AppRoutes.ADMIN}>

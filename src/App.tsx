@@ -10,7 +10,6 @@ import styled from 'styled-components'
 const store = makeStore()
 
 const AppWrapper = styled.div`
-  //background: #2F5AA8;
   height: 100vh;
 `
 
