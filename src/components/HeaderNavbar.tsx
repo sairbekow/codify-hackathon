@@ -26,6 +26,7 @@ const HeaderNavbar = () => {
   const links = [
     ['Башкы', AppRoutes.HOME],
     ['Айыл тарыхы', AppRoutes.VILAGE_HISTORY],
+    ['Вакансиялар', AppRoutes.VACANCIES],
     ['Кызматкерлер', AppRoutes.EMPLOYEES],
     ['Байланыш', AppRoutes.CONTACTS],
   ]

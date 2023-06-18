@@ -1,23 +1,35 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface IUserState {
-  isLoading: boolean
+  user: {
+    fullname: string
+    pin: string
+    villageId: number
+    userType: string
+    agriculturalLandId: number
+  }
 }
 
 const initialState: IUserState = {
-  isLoading: false,
+  user: {
+    fullname: '',
+    pin: '',
+    villageId: 0,
+    userType: '',
+    agriculturalLandId: 0,
+  },
 }
 
 const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setUserLoading: (state: IUserState, action: PayloadAction<boolean>) => {
-      state.isLoading = action.payload
+    setUserData: (state: IUserState, action: PayloadAction<IUserState>) => {
+      state.user = action.payload.user
     },
   },
 })
 
-export const { setUserLoading } = userSlice.actions
+export const { setUserData } = userSlice.actions
 
 export default userSlice

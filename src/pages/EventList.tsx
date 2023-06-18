@@ -1,5 +1,10 @@
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import Card from '../components/Card'
+import { useAppDispatch, useAppSelector } from '../hooks/redux'
+import { http } from '../utils/axios'
+import { QueryPath } from '../data/consts'
+import { setEventData } from '../store/slices/eventSlice'
+import Event from '../components/Card'
 
 const Wrapper = styled.div`
   padding: 30px;
@@ -17,16 +22,30 @@ const Ul = styled.div`
 `
 
 const EventList = () => {
-  const cards = [1, 2, 3, 4, 5, 6]
+  const eventList = useAppSelector((state) => state.eventState.eventList)
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    try {
+      http.get(QueryPath.GET_ALL_EVENTS).then(({ data }) => {
+        console.log(data)
+        dispatch(setEventData({ eventList: data }))
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }, [])
+
   return (
     <Wrapper>
       <Title>Негизги иш-чаралар</Title>
       <Ul>
-        {cards.map((item) => (
-          <li key={item}>
-            <Card />
-          </li>
-        ))}
+        {eventList &&
+          eventList.map((item) => (
+            <li key={item.id}>
+              <Event {...item} />
+            </li>
+          ))}
       </Ul>
     </Wrapper>
   )

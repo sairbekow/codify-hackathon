@@ -3,9 +3,12 @@ import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
 import { Link } from 'react-router-dom'
-import { AppRoutes } from "../data/consts.ts";
+import { AppRoutes } from '../data/consts.ts'
+import { getCurrentUser } from '../utils/cookie'
 
 const PasturePage = () => {
+  const username = getCurrentUser()
+
   return (
     <Box sx={{ pl: 5 }}>
       <Typography
@@ -15,9 +18,9 @@ const PasturePage = () => {
         color='white'>
         КҮЗГҮ ЖАЙЫТ АЯНТЫН АЛУУ ҮЧҮН СУРАМ ЖАРАТУУ
       </Typography>
-      <Box sx={{ pl: 10 }}>
+      <Box sx={{ pl: 10, width: '90%' }}>
         <Typography variant='h4' component='p' sx={{ mb: 5 }}>
-          ТАШИЕВ ЭМИР САЛМООРБЕКОВИЧ
+          {username}
         </Typography>
         <Typography sx={{ mb: 5 }}>МАЛДЫН САНЫН ӨЗГӨРТҮҮГӨ МҮМКҮН</Typography>
         <Typography sx={{ mb: 5, display: 'flex', alignItems: 'center' }}>

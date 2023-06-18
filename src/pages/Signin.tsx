@@ -5,22 +5,50 @@ import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 import logo from '@/assets/icons/logo.png'
 import styled from 'styled-components'
-
-import { grey } from '@mui/material/colors'
+import useLogin from '../hooks/api/useLogin'
+import { useNavigate } from 'react-router-dom'
+import { AppRoutes } from '../data/consts'
+import { setUserData } from '../store/slices/userSlice'
+import { useAppDispatch } from '../hooks/redux'
+import { useState } from 'react'
 
 const Wrapper = styled.div`
   height: 100vh;
   background-color: ${(props) => props.theme.colors.primary};
 `
 
+const ErrorMessage = styled.span`
+  color: ${(props) => props.theme.colors.error};
+`
+
 export default function SignIn() {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const login = useLogin()
+  const navigate = useNavigate()
+  const dispatch = useAppDispatch()
+
+  const [errorMessage, setErrorMessage] = useState<string>()
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const data = new FormData(event.currentTarget)
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    })
+    const pin = data.get('pin')
+    const password = data.get('password')
+
+    if (!pin || !password) return
+
+    try {
+      const response = await login({
+        pin,
+        password,
+      })
+      dispatch(setUserData({user: response}))
+      navigate(AppRoutes.HOME)
+    } catch (e: any) {
+      console.log(e)
+      if (e.status === 400) {
+        setErrorMessage('Пин же пароль туура эмес')
+      }
+    }
   }
 
   return (
@@ -49,19 +77,19 @@ export default function SignIn() {
             sx={{ mt: 10 }}>
             <TextField
               margin='normal'
-              required
+              required={true}
               fullWidth
-              id='email'
+              id='pin'
               label='Жеке номериңиз'
-              name='email'
-              autoComplete='email'
+              name='pin'
+              autoComplete='Pin'
               autoFocus
               variant='filled'
               style={{ backgroundColor: 'white' }}
             />
             <TextField
               margin='normal'
-              required
+              required={true}
               fullWidth
               name='password'
               label='Сыр сөзүңүз'
@@ -71,12 +99,13 @@ export default function SignIn() {
               variant='filled'
               style={{ backgroundColor: 'white' }}
             />
+            {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
             <Button
               type='submit'
               fullWidth
               variant='contained'
               size='large'
-              sx={{ mt: 3, mb: 2}}>
+              sx={{ mt: 3, mb: 2 }}>
               Кирүү
             </Button>
           </Box>

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { AppRoutes } from '../data/consts.ts'
+import { AppRoutes } from '../data/consts'
 
 const Nav = styled.nav`
   margin: 0 auto;
@@ -20,30 +20,36 @@ const Li = styled.li`
   line-height: 22px;
 `
 
-interface ILink {
-  label: string
-  href: string
-}
-
 const SideNavbar = () => {
-  const links: ILink[] = [
-    { label: 'БАШКЫ', href: '/' },
-    { label: "СУУ СУГАРУУ БӨЛҮМҮ", href: AppRoutes.IRRIGATION },
-    { label: "ЖАЙЫТ КОМИТЕТИ", href: '/pasture' },
-    { label: "СТАТИСТИКА БӨЛҮМҮ", href: '/' },
-    { label: "ЮРИДИКАЛЫК БӨЛҮМ", href: '/' },
-    { label: "АСКЕРДИК КАТТОО", href: '/' },
-    { label: "ЭКОНОМИКА БӨЛҮМҮ", href: '/' },
-    { label: "МИ «ТАЗАЛЫК»", href: '/'},
-    { label: "ВЕТ. ДЕПАРТАМЕНТ", href: AppRoutes.VET_DEPARTMENT },
-    { label: "АРЫЗ-ДОО", href: '/' }
+  const links = [
+    ['Башкы', AppRoutes.HOME],
+    ['Суу сугаруу бөлүмү', AppRoutes.IRRIGATION],
+    ['Жайыт Комитети', AppRoutes.PASTURE],
+    ['Вет. Департамент', AppRoutes.VET_DEPARTMENT],
+    ['Арыз-доо', '/home'],
+    ['Статистика бөлүмү', '/home'],
+    ['Юридикалык бөлүм', '/home'],
+    ['Аскердик каттоо', '/home'],
+    ['Экономика бөлүмү', '/home'],
+    ['МИ «Тазалык»', '/home'],
   ]
+
   return (
     <Nav>
       <Ul>
-        {links.map((item) => (
-          <Li key={item.label}>
-            <Link to={item.href}>{item.label}</Link>
+        {links.map((item, index) => (
+          <Li key={item[0]}>
+            {index === 4 && (
+              <div
+                style={{
+                  color: 'gray',
+                  marginBottom: 20,
+                  borderBottom: '1px solid gray',
+                }}>
+                Жакында
+              </div>
+            )}
+            <Link to={item[1]}>{item[0]}</Link>
           </Li>
         ))}
       </Ul>

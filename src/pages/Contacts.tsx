@@ -55,7 +55,7 @@ const Contacts = () => {
           <Subtitle>Бөлүмдөр</Subtitle>
           <List>
             {phoneData.map((item) => (
-              <li key={item[1]}>{item[0]}</li>
+              <li key={item[0]}>{item[0]}</li>
             ))}
           </List>
         </DepartmentBlock>
