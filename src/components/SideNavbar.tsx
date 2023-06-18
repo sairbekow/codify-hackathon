@@ -29,7 +29,7 @@ const SideNavbar = () => {
   const links: ILink[] = [
     { label: 'БАШКЫ', href: '/' },
     { label: "СУУ СУГАРУУ БӨЛҮМҮ", href: AppRoutes.IRRIGATION },
-    { label: "ЖАЙЫТ КОМИТЕТИ", href: '/' },
+    { label: "ЖАЙЫТ КОМИТЕТИ", href: '/pasture' },
     { label: "СТАТИСТИКА БӨЛҮМҮ", href: '/' },
     { label: "ЮРИДИКАЛЫК БӨЛҮМ", href: '/' },
     { label: "АСКЕРДИК КАТТОО", href: '/' },

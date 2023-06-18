@@ -5,6 +5,8 @@ export enum AppRoutes {
   IRRIGATION = '/irrigation',
   VET_DEPARTMENT = '/vet-department',
   ANIMAL_PAGE = '/animal',
+  PASTURE = '/pasture',
+  PASTURE_PAYMENT = '/pasture-payment',
   ADMIN = '/admin',
   REGIONS = 'regions',
   PAYMENTS = 'payments',

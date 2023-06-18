@@ -17,6 +17,8 @@ import Employees from './pages/Employees.tsx'
 import Irrigation from './pages/Irrigation.tsx'
 import VetDepartment from './pages/VetDepartment.tsx'
 import AnimalPage from './pages/AnimalPage.tsx'
+import PasturePage from './pages/PasturePage.tsx'
+import PasturePayment from './pages/PasturePayment.tsx'
 
 const AppRouter = () => {
   return (
@@ -27,6 +29,8 @@ const AppRouter = () => {
         <Route path={AppRoutes.IRRIGATION} element={<Irrigation />} />
         <Route path={AppRoutes.VET_DEPARTMENT} element={<VetDepartment />} />
         <Route path={AppRoutes.ANIMAL_PAGE} element={<AnimalPage />} />
+        <Route path={AppRoutes.PASTURE} element={<PasturePage />} />
+        <Route path={AppRoutes.PASTURE_PAYMENT} element={<PasturePayment />} />
         <Route path={AppRoutes.VILAGE_HISTORY} element={<VilageHistory />} />
         <Route path={AppRoutes.CONTACTS} element={<Contacts />} />
         <Route path={AppRoutes.EMPLOYEES} element={<Employees />} />
