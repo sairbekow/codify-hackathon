@@ -19,6 +19,9 @@ import VetDepartment from './pages/VetDepartment.tsx'
 import AnimalPage from './pages/AnimalPage.tsx'
 import PasturePage from './pages/PasturePage.tsx'
 import PasturePayment from './pages/PasturePayment.tsx'
+import Pasture from './pages/admin/pages/Pasture.tsx'
+import PastureList from "./pages/admin/pages/PastureList.tsx";
+import PastureConfirm from "./pages/admin/pages/PastureConfirm.tsx";
 
 const AppRouter = () => {
   return (
@@ -49,6 +52,9 @@ const AppRouter = () => {
         <Route path={AppRoutes.USERS} element={<Users />} />
         <Route path={AppRoutes.REGIONS} element={<Regions />} />
         <Route path={AppRoutes.PAYMENTS} element={<Payments />} />
+        <Route path={AppRoutes.PASTURE_ADMIN} element={<Pasture />} />
+        <Route path={AppRoutes.PASTURE_LIST_ADMIN} element={<PastureList />} />
+        <Route path={AppRoutes.PASTURE_CONFIRM_ADMIN} element={<PastureConfirm />} />
       </Route>
       <Route path='*' element={<h1 className='container'>404</h1>} />
     </Routes>

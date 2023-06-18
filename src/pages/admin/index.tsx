@@ -85,6 +85,21 @@ export default function Admin() {
                 <ListItemText primary='Payments' />
               </ListItemButton>
             </Link>
+            <Link to={AppRoutes.PASTURE_ADMIN}>
+              <ListItemButton>
+                <ListItemText primary='Pasture' />
+              </ListItemButton>
+            </Link>
+            <Link to={AppRoutes.PASTURE_LIST_ADMIN}>
+              <ListItemButton>
+                <ListItemText primary='Pasture list' />
+              </ListItemButton>
+            </Link>
+            <Link to={AppRoutes.PASTURE_CONFIRM_ADMIN}>
+              <ListItemButton>
+                <ListItemText primary='Pasture confirm' />
+              </ListItemButton>
+            </Link>
           </List>
         </Drawer>
         <Box

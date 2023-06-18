@@ -15,5 +15,9 @@ export enum AppRoutes {
   EMPLOYEES = 'employees',
   CONTACTS = 'contacts',
   IRRIGATIONS_LIST_ADMIN = 'irrigations-list',
-  IRRIGATIONS_REQUESTS_ADMIN = 'irrigations-requests'
+  IRRIGATIONS_REQUESTS_ADMIN = 'irrigations-requests',
+  PASTURE_ADMIN = 'pasture',
+  PASTURE_LIST_ADMIN = 'pasture-list',
+  PASTURE_CONFIRM_ADMIN = 'pasture-confirm'
+
 }
