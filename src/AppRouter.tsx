@@ -21,7 +21,6 @@ const AppRouter = () => {
   return (
     <Routes>
       <Route path={AppRoutes.SIGNIN} element={<SignIn />} />
-
       {isUserLogged && (
         <>
           <Route path={AppRoutes.HOME} element={<Home />}>

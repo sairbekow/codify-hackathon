@@ -21,4 +21,6 @@ export enum AppRoutes {
 
 export enum QueryPath {
   USERS_SIGNIN = 'users/signin',
+  GET_ALL_EVENTS = 'news/getall',
+  GET_EVENT = 'news/get'
 }
