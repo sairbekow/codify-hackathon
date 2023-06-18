@@ -16,7 +16,7 @@ interface ICard {
 
 export default function Event({ id,title, image }: ICard) {
   return (
-    <Link to={`${QueryPath.GET_EVENT}/${id}`}>
+    <Link to={`${QueryPath.GET_EVENT}${id}`}>
       <Card sx={{ maxWidth: 345 }}>
         <CardActionArea>
           <CardMedia

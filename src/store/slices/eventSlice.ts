@@ -9,10 +9,17 @@ interface IEvent {
 
 interface IEventState {
   eventList: IEvent[]
+  currentEvent: IEvent
 }
 
 const initialState: IEventState = {
   eventList: [],
+  currentEvent: {
+    id: 0,
+    title: '',
+    content: '',
+    image: '',
+  },
 }
 
 const eventSlice = createSlice({
@@ -22,9 +29,12 @@ const eventSlice = createSlice({
     setEventData: (state: IEventState, action: PayloadAction<IEventState>) => {
       state.eventList = action.payload.eventList
     },
+    setCurrentEvent: (state: IEventState, action: PayloadAction<IEvent>) => {
+      state.currentEvent = action.payload
+    },
   },
 })
 
-export const { setEventData } = eventSlice.actions
+export const { setEventData, setCurrentEvent } = eventSlice.actions
 
 export default eventSlice

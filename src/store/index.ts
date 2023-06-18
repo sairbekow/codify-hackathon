@@ -1,6 +1,6 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import userSlice from './slices/userSlice'
-import eventSlice from './slices/EventSlice'
+import eventSlice from './slices/eventSlice'
 
 const rootReducer = combineReducers({
   userState: userSlice.reducer,

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useAppDispatch, useAppSelector } from '../hooks/redux'
 import { http } from '../utils/axios'
 import { QueryPath } from '../data/consts'
-import { setEventData } from '../store/slices/EventSlice'
+import { setEventData } from '../store/slices/eventSlice'
 import Event from '../components/Card'
 
 const Wrapper = styled.div`

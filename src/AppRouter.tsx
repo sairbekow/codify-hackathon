@@ -14,10 +14,15 @@ import VilageHistory from './pages/VilageHistory'
 import Contacts from './pages/Contacts'
 import { getCurrentUser } from './utils/cookie'
 import Vacancies from './pages/Vacancies'
+import News from './pages/News.tsx'
+import Employees from './pages/Employees.tsx'
+import Irrigation from './pages/Irrigation.tsx'
+import VetDepartment from './pages/VetDepartment.tsx'
+import AnimalPage from './pages/AnimalPage.tsx'
 
 const AppRouter = () => {
   const isUserLogged = getCurrentUser()
-
+  console.log(isUserLogged)
   return (
     <Routes>
       <Route path={AppRoutes.SIGNIN} element={<SignIn />} />
@@ -25,11 +30,19 @@ const AppRouter = () => {
         <>
           <Route path={AppRoutes.HOME} element={<Home />}>
             <Route index element={<EventList />} />
+            <Route path={AppRoutes.IRRIGATION} element={<Irrigation />} />
+            <Route path={AppRoutes.NEWS_DETAIL} element={<News />} />
+            <Route
+              path={AppRoutes.VET_DEPARTMENT}
+              element={<VetDepartment />}
+            />
+            <Route path={AppRoutes.ANIMAL_PAGE} element={<AnimalPage />} />
             <Route
               path={AppRoutes.VILAGE_HISTORY}
               element={<VilageHistory />}
             />
             <Route path={AppRoutes.CONTACTS} element={<Contacts />} />
+            <Route path={AppRoutes.EMPLOYEES} element={<Employees />} />
             <Route path={AppRoutes.VACANCIES} element={<Vacancies />} />
           </Route>
           <Route path={AppRoutes.ADMIN} element={<Admin />}>
