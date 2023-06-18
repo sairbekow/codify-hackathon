@@ -13,16 +13,20 @@ import EventList from './pages/EventList'
 import VilageHistory from './pages/VilageHistory'
 import Contacts from './pages/Contacts'
 import News from './pages/News.tsx'
-import Employees from "./pages/Employees.tsx";
-import Irrigation from "./pages/Irrigation.tsx";
+import Employees from './pages/Employees.tsx'
+import Irrigation from './pages/Irrigation.tsx'
+import VetDepartment from './pages/VetDepartment.tsx'
+import AnimalPage from './pages/AnimalPage.tsx'
 
 const AppRouter = () => {
   return (
     <Routes>
       <Route path={AppRoutes.HOME} element={<Home />}>
         <Route index element={<EventList />} />
-        <Route path={AppRoutes.NEWS_DETAIL} element={<News/>}/>
-        <Route path={AppRoutes.IRRIGATION} element={<Irrigation/>}/>
+        <Route path={AppRoutes.NEWS_DETAIL} element={<News />} />
+        <Route path={AppRoutes.IRRIGATION} element={<Irrigation />} />
+        <Route path={AppRoutes.VET_DEPARTMENT} element={<VetDepartment />} />
+        <Route path={AppRoutes.ANIMAL_PAGE} element={<AnimalPage />} />
         <Route path={AppRoutes.VILAGE_HISTORY} element={<VilageHistory />} />
         <Route path={AppRoutes.CONTACTS} element={<Contacts />} />
         <Route path={AppRoutes.EMPLOYEES} element={<Employees />} />

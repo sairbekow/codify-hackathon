@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { AppRoutes } from "../data/consts.ts";
+import { AppRoutes } from '../data/consts.ts'
 
 const Nav = styled.nav`
   margin: 0 auto;
@@ -35,7 +35,7 @@ const SideNavbar = () => {
     { label: "АСКЕРДИК КАТТОО", href: '/' },
     { label: "ЭКОНОМИКА БӨЛҮМҮ", href: '/' },
     { label: "МИ «ТАЗАЛЫК»", href: '/'},
-    { label: "ВЕТ. ДЕПАРТАМЕНТ", href: '/' },
+    { label: "ВЕТ. ДЕПАРТАМЕНТ", href: AppRoutes.VET_DEPARTMENT },
     { label: "АРЫЗ-ДОО", href: '/' }
   ]
   return (

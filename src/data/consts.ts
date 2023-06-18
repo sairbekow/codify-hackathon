@@ -3,6 +3,8 @@ export enum AppRoutes {
   SIGNIN = '/signin',
   NEWS_DETAIL = '/news/:id',
   IRRIGATION = '/irrigation',
+  VET_DEPARTMENT = '/vet-department',
+  ANIMAL_PAGE = '/animal',
   ADMIN = '/admin',
   REGIONS = 'regions',
   PAYMENTS = 'payments',
