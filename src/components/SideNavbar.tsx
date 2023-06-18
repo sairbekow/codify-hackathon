@@ -25,20 +25,30 @@ const SideNavbar = () => {
     ['Башкы', AppRoutes.HOME],
     ['Суу сугаруу бөлүмү', AppRoutes.IRRIGATION],
     ['Жайыт Комитети', AppRoutes.PASTURE],
-    ['Арыз-доо', AppRoutes.COMPLAINS],
     ['Вет. Департамент', AppRoutes.VET_DEPARTMENT],
-    ['Статистика бөлүмү', '/empty'],
-    ['Юридикалык бөлүм', '/empty'],
-    ['Аскердик каттоо', '/empty'],
-    ['Экономика бөлүмү', '/empty'],
-    ['МИ «Тазалык»', '/empty'],
+    ['Арыз-доо', '/home'],
+    ['Статистика бөлүмү', '/home'],
+    ['Юридикалык бөлүм', '/home'],
+    ['Аскердик каттоо', '/home'],
+    ['Экономика бөлүмү', '/home'],
+    ['МИ «Тазалык»', '/home'],
   ]
 
   return (
     <Nav>
       <Ul>
-        {links.map((item) => (
+        {links.map((item, index) => (
           <Li key={item[0]}>
+            {index === 4 && (
+              <div
+                style={{
+                  color: 'gray',
+                  marginBottom: 20,
+                  borderBottom: '1px solid gray',
+                }}>
+                Жакында
+              </div>
+            )}
             <Link to={item[1]}>{item[0]}</Link>
           </Li>
         ))}

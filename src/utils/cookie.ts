@@ -18,11 +18,8 @@ export const getUser = (pin: string): string | undefined => {
   return Cookie.get(pin)
 }
 
-export const setCurrentUser = ({
-  username,
-  villageId,
-}: IUserResponse): void => {
-  Cookie.set('current_user', { username, villageId }, { expires: 1 })
+export const setCurrentUser = (username: string): void => {
+  Cookie.set('current_user', username , { expires: 1 })
 }
 
 export const getCurrentUser = (): IUserResponse | undefined => {
