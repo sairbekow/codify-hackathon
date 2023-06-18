@@ -57,47 +57,33 @@ export default function Admin() {
           <List component='nav'>
             <Link to={AppRoutes.ADMIN}>
               <ListItemButton>
-                <ListItemText primary='Irrigation' />
+                <ListItemText primary='Суугат' />
               </ListItemButton>
             </Link>
             <Link to={AppRoutes.IRRIGATIONS_LIST_ADMIN}>
               <ListItemButton>
-                <ListItemText primary='Irrigations list' />
+                <ListItemText primary='Суугат тизмеси' />
               </ListItemButton>
             </Link>
             <Link to={AppRoutes.IRRIGATIONS_REQUESTS_ADMIN}>
               <ListItemButton>
-                <ListItemText primary='Irrigations requests' />
+                <ListItemText primary='Суугатка жазылуу' />
               </ListItemButton>
             </Link>
-            <Link to={AppRoutes.USERS}>
-              <ListItemButton>
-                <ListItemText primary='Users' />
-              </ListItemButton>
-            </Link>
-            <Link to={AppRoutes.REGIONS}>
-              <ListItemButton>
-                <ListItemText primary='Regions' />
-              </ListItemButton>
-            </Link>
-            <Link to={AppRoutes.PAYMENTS}>
-              <ListItemButton>
-                <ListItemText primary='Payments' />
-              </ListItemButton>
-            </Link>
+
             <Link to={AppRoutes.PASTURE_ADMIN}>
               <ListItemButton>
-                <ListItemText primary='Pasture' />
+                <ListItemText primary='Жайлоо' />
               </ListItemButton>
             </Link>
             <Link to={AppRoutes.PASTURE_LIST_ADMIN}>
               <ListItemButton>
-                <ListItemText primary='Pasture list' />
+                <ListItemText primary='Жайлоо тизмеси' />
               </ListItemButton>
             </Link>
             <Link to={AppRoutes.PASTURE_CONFIRM_ADMIN}>
               <ListItemButton>
-                <ListItemText primary='Pasture confirm' />
+                <ListItemText primary='Жайлоога кабыл алуу' />
               </ListItemButton>
             </Link>
           </List>
