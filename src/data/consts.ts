@@ -7,6 +7,8 @@ export enum AppRoutes {
   IRRIGATION = 'irrigation',
   VET_DEPARTMENT = 'vet-department',
   ANIMAL_PAGE = 'animal',
+  PASTURE = '/pasture',
+  PASTURE_PAYMENT = '/pasture-payment',
   ADMIN = '/admin',
   REGIONS = 'regions',
   PAYMENTS = 'payments',
@@ -19,6 +21,9 @@ export enum AppRoutes {
   IRRIGATIONS_REQUESTS = 'irrigations-requests',
   IRRIGATIONS_LIST_ADMIN = 'irrigations-list',
   IRRIGATIONS_REQUESTS_ADMIN = 'irrigations-requests',
+  PASTURE_ADMIN = 'pasture',
+  PASTURE_LIST_ADMIN = 'pasture-list',
+  PASTURE_CONFIRM_ADMIN = 'pasture-confirm',
   FIELD = 'field',
   COMPLAINS = 'complains'
 }
