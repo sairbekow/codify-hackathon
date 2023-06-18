@@ -6,15 +6,18 @@ import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker'
 import Button from '@mui/material/Button'
 import { useState } from 'react'
 import dayjs, { Dayjs } from 'dayjs'
+import useStartRounds from '../../../hooks/api/useStartRounds'
 
 function IrrigationAdmin() {
   const [title, setTitle] = useState<string>('')
   const [price, setPrice] = useState<number>(0)
-  const [date, setDate] = useState<Dayjs | null>(dayjs('2022-04-17'))
+  const [startDate, setDate] = useState<Dayjs | null>(dayjs('2022-04-17'))
+  const irigationCall = useStartRounds()
 
-  const handleSubmit = (e: any) : void => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault()
-    console.log(title, price, date?.toISOString())
+    const obj = { startDate, coastForAnHectare: price, title, villageId: 15 }
+    await irigationCall(obj)
   }
 
   return (
@@ -28,8 +31,7 @@ function IrrigationAdmin() {
       display='flex'
       flexDirection='column'
       alignItems='center'
-      onSubmit={(e) => handleSubmit(e)}
-    >
+      onSubmit={(e) => handleSubmit(e)}>
       <TextField
         type='text'
         id='filled-basic'
@@ -51,11 +53,13 @@ function IrrigationAdmin() {
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <StaticDatePicker
           orientation='landscape'
-          value={date}
+          value={startDate}
           onChange={(newValue) => setDate(newValue)}
         />
       </LocalizationProvider>
-      <Button type='submit' variant='contained'>Баштоо</Button>
+      <Button type='submit' variant='contained'>
+        Баштоо
+      </Button>
     </Box>
   )
 }

@@ -24,7 +24,7 @@ export enum AppRoutes {
   PASTURE_ADMIN = 'pasture',
   PASTURE_LIST_ADMIN = 'pasture-list',
   PASTURE_CONFIRM_ADMIN = 'pasture-confirm',
-  COMPLAINS = 'complains'
+  COMPLAINS = 'complains',
 }
 
 export enum QueryPath {
@@ -32,5 +32,6 @@ export enum QueryPath {
   GET_ALL_EVENTS = 'news/getall',
   GET_EVENT = 'news/get/',
   EMPLOYEE_GET_ALL = 'employee/getall',
-  ROUNDS_CONTROLLER = 'roundscotrolller/getForUser?villageId='
+  ROUNDS_CONTROLLER = 'roundscotrolller/getForUser?villageId=',
+  ROUNDS_CONTROLLER_START = 'roundscotrolller/start',
 }
