@@ -13,8 +13,8 @@ export const getUser = (pin: string): string | undefined => {
   return Cookie.get(pin)
 }
 
-export const setCurrentUser = (user: IUser): void => {
-  Cookie.set('current_user', user.pin, { expires: 1 })
+export const setCurrentUser = (username: string): void => {
+  Cookie.set('current_user', username, { expires: 1 })
 }
 
 export const getCurrentUser = (): string | undefined => {

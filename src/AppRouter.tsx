@@ -13,6 +13,7 @@ import EventList from './pages/EventList'
 import VilageHistory from './pages/VilageHistory'
 import Contacts from './pages/Contacts'
 import { getCurrentUser } from './utils/cookie'
+import Vacancies from './pages/Vacancies'
 
 const AppRouter = () => {
   const isUserLogged = getCurrentUser()
@@ -30,6 +31,7 @@ const AppRouter = () => {
               element={<VilageHistory />}
             />
             <Route path={AppRoutes.CONTACTS} element={<Contacts />} />
+            <Route path={AppRoutes.VACANCIES} element={<Vacancies />} />
           </Route>
           <Route path={AppRoutes.ADMIN} element={<Admin />}>
             <Route index element={<IrrigationAdmin />} />

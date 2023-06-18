@@ -6,6 +6,7 @@ import personIcon from '../assets/icons/person.svg'
 import { Link, useNavigate } from 'react-router-dom'
 import { AppRoutes } from '../data/consts'
 import { getCurrentUser, removeCurrentUser } from '../utils/cookie'
+import { useAppSelector } from '../hooks/redux'
 
 const Wrapper = styled.div`
   width: 100%;
@@ -28,22 +29,26 @@ const Line = styled.div`
 `
 
 const MainHeader = () => {
-  const isUserLogged = getCurrentUser()
   const navigate = useNavigate()
+  const username = getCurrentUser()
 
   const logout = () => {
-    if (!isUserLogged) return
+    if (!username) return
+
     const isUserSure = confirm('Сиз чыгууну каалайсызбы?')
-    if (isUserSure) removeCurrentUser()
-    navigate(AppRoutes.SIGNIN)
+
+    if (isUserSure) {
+      removeCurrentUser()
+      navigate(AppRoutes.SIGNIN)
+    }
   }
 
   return (
     <Wrapper>
       <div>
         <Button onClick={logout}>
-          {isUserLogged ? (
-            <span>{isUserLogged} - Чыгуу</span>
+          {username ? (
+            <span>{username} - Чыгуу</span>
           ) : (
             <Link to={AppRoutes.SIGNIN}>Кирүү</Link>
           )}

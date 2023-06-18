@@ -13,6 +13,10 @@ export enum AppRoutes {
   VACANCIES = 'vacancies',
   IRRIGATIONS_LIST = 'irrigations-list',
   IRRIGATIONS_REQUESTS = 'irrigations-requests',
+  WATER = 'water',
+  FIELD = 'field',
+  COMPLAINS = 'complains',
+  VET_DEP = 'vet-department'
 }
 
 export enum QueryPath {

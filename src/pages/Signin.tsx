@@ -18,13 +18,14 @@ const Wrapper = styled.div`
 `
 
 const ErrorMessage = styled.span`
-  color: ${props => props.theme.colors.error}
+  color: ${(props) => props.theme.colors.error};
 `
 
 export default function SignIn() {
   const login = useLogin()
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
+
   const [errorMessage, setErrorMessage] = useState<string>()
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -40,14 +41,14 @@ export default function SignIn() {
         pin,
         password,
       })
-      console.log(response)
-      dispatch(setUserData(response))
-    } catch (e) {
-      if (e.code === 401) {
-        setErrorMessage('Password is not correct')
+      dispatch(setUserData({user: response}))
+      navigate(AppRoutes.HOME)
+    } catch (e: any) {
+      console.log(e)
+      if (e.status === 400) {
+        setErrorMessage('Пин же пароль туура эмес')
       }
     }
-    navigate(AppRoutes.HOME)
   }
 
   return (

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { AppRoutes } from '../data/consts'
 
 const Nav = styled.nav`
   margin: 0 auto;
@@ -21,13 +22,25 @@ const Li = styled.li`
 `
 
 const SideNavbar = () => {
-  const links: string[] = ['БАШКЫ', 'СУУ СУГАРУУ БӨЛҮМҮ', 'ЖАЙЫТ КОМИТЕТИ', 'СТАТИСТИКА БӨЛҮМҮ', 'ЮРИДИКАЛЫК БӨЛҮМ', 'АСКЕРДИК КАТТОО', 'ЭКОНОМИКА БӨЛҮМҮ', 'МИ «ТАЗАЛЫК»', 'ВЕТ. ДЕПАРТАМЕНТ', 'АРЫЗ-ДОО']
+  const links = [
+    ['Башкы', AppRoutes.HOME],
+    ['Суу сугаруу бөлүмү', AppRoutes.WATER],
+    ['Жайыт Комиетети', AppRoutes.FIELD],
+    ['Арыз-доо', AppRoutes.COMPLAINS],
+    ['Вет. Департамент', AppRoutes.VET_DEP],
+    ['Статистика бөлүмү', '/empty'],
+    ['Юридикалык бөлүм', '/empty'],
+    ['Аскердик каттоо', '/empty'],
+    ['Экономика бөлүмү', '/empty'],
+    ['МИ «Тазалык»', '/empty'],
+  ]
+
   return (
     <Nav>
       <Ul>
-        {links.map(item => (
-          <Li key={item}>
-            <Link to='/'>{item}</Link>
+        {links.map((item) => (
+          <Li key={item[0]}>
+            <Link to={item[1]}>{item[0]}</Link>
           </Li>
         ))}
       </Ul>

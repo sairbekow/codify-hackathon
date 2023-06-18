@@ -1,5 +1,5 @@
 import { CssBaseline } from '@mui/material'
-import { makeStore } from './store'
+import { makeStore } from './store/index'
 import { Provider } from 'react-redux'
 import GlobalStyles from './styles/global'
 import Theme from './styles/theme'
