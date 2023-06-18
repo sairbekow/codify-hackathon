@@ -7,8 +7,8 @@ export enum AppRoutes {
   IRRIGATION = 'irrigation',
   VET_DEPARTMENT = 'vet-department',
   ANIMAL_PAGE = 'animal',
-  PASTURE = '/pasture',
-  PASTURE_PAYMENT = '/pasture-payment',
+  PASTURE = 'pasture',
+  PASTURE_PAYMENT = 'pasture-payment',
   ADMIN = '/admin',
   REGIONS = 'regions',
   PAYMENTS = 'payments',
@@ -24,7 +24,6 @@ export enum AppRoutes {
   PASTURE_ADMIN = 'pasture',
   PASTURE_LIST_ADMIN = 'pasture-list',
   PASTURE_CONFIRM_ADMIN = 'pasture-confirm',
-  FIELD = 'field',
   COMPLAINS = 'complains'
 }
 
@@ -33,5 +32,5 @@ export enum QueryPath {
   GET_ALL_EVENTS = 'news/getall',
   GET_EVENT = 'news/get/',
   EMPLOYEE_GET_ALL = 'employee/getall',
-  ROUNDS_CONTROLLER = 'roundscotrolller/getForVillage?id='
+  ROUNDS_CONTROLLER = 'roundscotrolller/getForUser?villageId='
 }

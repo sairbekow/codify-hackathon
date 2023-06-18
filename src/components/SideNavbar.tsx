@@ -20,16 +20,11 @@ const Li = styled.li`
   line-height: 22px;
 `
 
-interface ILink {
-  label: string
-  href: string
-}
-
 const SideNavbar = () => {
   const links = [
     ['Башкы', AppRoutes.HOME],
-    ['Суу сугаруу бөлүмү', AppRoutes.IRRIGATION ],
-    ['Жайыт Комитети', AppRoutes.FIELD],
+    ['Суу сугаруу бөлүмү', AppRoutes.IRRIGATION],
+    ['Жайыт Комитети', AppRoutes.PASTURE],
     ['Арыз-доо', AppRoutes.COMPLAINS],
     ['Вет. Департамент', AppRoutes.VET_DEPARTMENT],
     ['Статистика бөлүмү', '/empty'],

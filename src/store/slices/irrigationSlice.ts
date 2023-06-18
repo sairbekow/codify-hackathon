@@ -1,24 +1,34 @@
-// import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-//
-// interface IIrigationState {
-//
-// }
-//
-//
-// const initialState: IIrigationState = {
-//
-// }
-//
-// const irrigationSlice = createSlice({
-//   name: 'event',
-//   initialState,
-//   reducers: {
-//     setIncomintData: (state: IEventState, action: PayloadAction<IEventState>) => {
-//       state.eventList = action.payload.eventList
-//     }
-//   },
-// })
-//
-// export const { setIncomintData } = irrigationSlice.actions
-//
-// export default irrigationSlice
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+
+interface IIrigation {
+  ownerFullname: string
+  ownerPin: string
+  areaTitle: string
+  startDate: string
+  status: number
+}
+
+interface IIrigationState {
+  irrigationList: IIrigation[] | []
+}
+
+const initialState: IIrigationState = {
+  irrigationList: [],
+}
+
+const irrigationSlice = createSlice({
+  name: 'event',
+  initialState,
+  reducers: {
+    setIrrigationData: (
+      state: IIrigationState,
+      action: PayloadAction<IIrigationState>
+    ) => {
+      state.irrigationList = action.payload.irrigationList
+    },
+  },
+})
+
+export const { setIrrigationData } = irrigationSlice.actions
+
+export default irrigationSlice

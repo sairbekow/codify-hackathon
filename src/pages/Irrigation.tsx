@@ -5,41 +5,29 @@ import { DateCalendar } from '@mui/x-date-pickers'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import Typography from '@mui/material/Typography'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { http } from '../utils/axios'
 import { QueryPath } from '../data/consts'
-
-const irrigations = [
-  {
-    date: '12.02.2021',
-    time: '13:00',
-    fullname: 'argen sairbekov',
-    target: 'kashar',
-    status: 'sugardy',
-  },
-  {
-    date: '13.02.2021',
-    time: '11:00',
-    fullname: 'meerim altynbekova',
-    target: 'oguz',
-    status: 'sugaryp jatat',
-  },
-  {
-    date: '14.02.2021',
-    time: '9:00',
-    fullname: 'avtandil toltoev',
-    target: 'kashar',
-    status: 'sugardy',
-  },
-]
+import { useAppDispatch, useAppSelector } from '../hooks/redux'
+import { setIrrigationData } from '../store/slices/irrigationSlice'
+import { getCurrentUser } from '../utils/cookie'
 
 const Irrigation = () => {
+  const { villageId } = getCurrentUser()
+  const [day, setDay] = useState(1)
+  const dispatch = useAppDispatch()
+  const username = getCurrentUser()
+  const irrigationList = useAppSelector(
+    (state) => state.irrigationState.irrigationList
+  )
 
+  console.log(username)
   useEffect(() => {
-    http.get(QueryPath.ROUNDS_CONTROLLER).then(({ data }) => {
-
+    http.get(`${QueryPath.ROUNDS_CONTROLLER}${15}`).then(({ data }) => {
+      console.log(data)
+      dispatch(setIrrigationData({ irrigationList: data }))
     })
-  })
+  }, [])
 
   return (
     <div>
@@ -52,9 +40,9 @@ const Irrigation = () => {
             alignItems: 'center',
             gap: 1,
           }}>
-          {irrigations.map((item) => (
-            <IrrigationCard key={item.fullname} {...item} />
-          ))}
+          {irrigationList.slice(0, 3).map((item) => {
+            return <IrrigationCard key={item.ownerFullname} {...item} />
+          })}
           <Box>
             <Typography align='center' variant='h3' component='p'>
               Сиздин кезегиңиз
@@ -67,13 +55,15 @@ const Irrigation = () => {
                 gap: 1,
               }}>
               <IrrigationCard
-                date={'15.06.2023'}
+                startDate={day}
                 time={'12:00'}
-                fullname={'Emir Tashiev'}
-                target={'Oguz'}
-                status={'Sugarat'}
+                ownerFullname={username}
+                ownerPin={'Ойуз'}
               />
-              <DateCalendar defaultValue={dayjs('2022-04-17')} />
+              <DateCalendar
+                onChange={(date) => setDay(date)}
+                defaultValue={dayjs('2022-04-17')}
+              />
             </Box>
           </Box>
         </Box>

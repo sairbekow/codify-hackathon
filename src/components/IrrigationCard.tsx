@@ -3,14 +3,22 @@ import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
 
 interface IProps {
-  date: string
-  time: string
-  fullname: string
-  target: string
-  status: string
+  ownerFullname: string
+  ownerPin: string
+  areaTitle: string
+  startDate: string
+  status: number
 }
 
-const IrrigationCard = ({ date, time, fullname, target, status }: IProps) => {
+const IrrigationCard = ({
+  startDate,
+  ownerFullname,
+  status,
+  areaTitle,
+}: IProps) => {
+  const date = new Date(startDate).toLocaleTimeString()
+  const time = new Date(startDate).toLocaleDateString()
+
   return (
     <Card
       variant='outlined'
@@ -26,16 +34,15 @@ const IrrigationCard = ({ date, time, fullname, target, status }: IProps) => {
           {time}
         </Typography>
         <Typography
-          sx={{ mb: 1.5 }}
+          sx={{ marginBottom: 1.5, marginTop: 1.5, color: '#2F5AA8' }}
           color='text.secondary'
           variant='h4'
           component='p'>
-          {fullname}
+          {ownerFullname}
         </Typography>
         <Typography variant='h5' sx={{ mb: 2 }} component='p'>
-          {target}
+          {areaTitle}
         </Typography>
-        <Typography variant='body2'>{status}</Typography>
       </CardContent>
     </Card>
   )
