@@ -12,7 +12,6 @@ import IrrigationsRequests from './pages/admin/pages/IrrigationsRequests.tsx'
 import EventList from './pages/EventList'
 import VilageHistory from './pages/VilageHistory'
 import Contacts from './pages/Contacts'
-import { getCurrentUser } from './utils/cookie'
 import Vacancies from './pages/Vacancies'
 import News from './pages/News.tsx'
 import Employees from './pages/Employees.tsx'
@@ -24,12 +23,25 @@ import PasturePayment from './pages/PasturePayment.tsx'
 import Pasture from './pages/admin/pages/Pasture.tsx'
 import PastureList from './pages/admin/pages/PastureList.tsx'
 import PastureConfirm from './pages/admin/pages/PastureConfirm.tsx'
-import CreateEvent from './pages/admin/pages/CreateEvent.tsx'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from './store/index.ts'
+import EventCreate from './pages/admin/pages/EventCreate.tsx'
+import { useEffect } from 'react'
+import { setUserLoggedIn } from './store/slices/userSlice.ts'
+import { getCurrentUser } from './utils/cookie.ts'
 
 const AppRouter = () => {
-  const isUserLogged = useSelector((state: RootState) => state.userState.isLoggedIn)
+  const isUserLogged = useSelector(
+    (state: RootState) => state.userState.isLoggedIn
+  )
+  console.log(isUserLogged)
+  const dispatch = useDispatch()
+  useEffect(() => {
+    const isLoggedIn = getCurrentUser()
+    if (isLoggedIn) {
+      dispatch(setUserLoggedIn())
+    }
+  }, [])
   return (
     <Routes>
       <Route path={AppRoutes.SIGNIN} element={<SignIn />} />
@@ -67,7 +79,7 @@ const AppRouter = () => {
               path={AppRoutes.IRRIGATIONS_REQUESTS}
               element={<IrrigationsRequests />}
             />
-            <Route path={AppRoutes.NEWS_CREATE} element={<CreateEvent />} />
+            <Route path={AppRoutes.NEWS_CREATE} element={<EventCreate />} />
             <Route path={AppRoutes.USERS} element={<Users />} />
             <Route path={AppRoutes.REGIONS} element={<Regions />} />
             <Route path={AppRoutes.PAYMENTS} element={<Payments />} />

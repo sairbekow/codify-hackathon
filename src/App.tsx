@@ -1,10 +1,13 @@
 import { CssBaseline } from '@mui/material'
 import { makeStore } from './store/index'
-import { Provider } from 'react-redux'
+import { Provider, useDispatch } from 'react-redux'
 import GlobalStyles from './styles/global'
 import Theme from './styles/theme'
 import AppRouter from './AppRouter'
 import styled from 'styled-components'
+import { useEffect } from 'react'
+import { getCurrentUser } from './utils/cookie'
+import { setUserLoggedIn } from './store/slices/userSlice'
 
 const store = makeStore()
 

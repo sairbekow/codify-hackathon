@@ -11,6 +11,8 @@ import { AppRoutes } from '../data/consts'
 import { setUserData } from '../store/slices/userSlice'
 import { useAppDispatch } from '../hooks/redux'
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
+import { RootState } from '../store'
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -25,6 +27,7 @@ export default function SignIn() {
   const login = useLogin()
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
+  const user = useSelector((state: RootState) => state.userState.user)
 
   const [errorMessage, setErrorMessage] = useState<string>()
 
@@ -41,8 +44,12 @@ export default function SignIn() {
         pin,
         password,
       })
-      dispatch(setUserData({user: response, isLoggedIn: true}))
-      navigate(AppRoutes.HOME)
+      dispatch(setUserData({ user: response, isLoggedIn: true }))
+      if (response.type == 0) {
+        navigate(AppRoutes.HOME)
+      } else if (response.type == 1) {
+        navigate(AppRoutes.ADMIN)
+      }
     } catch (e: any) {
       console.log(e)
       if (e.status === 400) {

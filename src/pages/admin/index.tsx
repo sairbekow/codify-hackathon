@@ -51,8 +51,7 @@ export default function Admin() {
               alignItems: 'center',
               justifyContent: 'flex-end',
               px: [1],
-            }}>
-          </Toolbar>
+            }}></Toolbar>
           <Divider />
           <List component='nav'>
             <Link to={AppRoutes.ADMIN}>
@@ -84,6 +83,11 @@ export default function Admin() {
             <Link to={AppRoutes.PASTURE_CONFIRM_ADMIN}>
               <ListItemButton>
                 <ListItemText primary='Жайлоога кабыл алуу' />
+              </ListItemButton>
+            </Link>
+            <Link to={AppRoutes.NEWS_CREATE}>
+              <ListItemButton>
+                <ListItemText primary='Жаңылык кошуу' />
               </ListItemButton>
             </Link>
           </List>
