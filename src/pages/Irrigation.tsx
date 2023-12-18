@@ -13,7 +13,7 @@ import { setIrrigationData } from '../store/slices/irrigationSlice'
 import { getCurrentUser } from '../utils/cookie'
 
 const Irrigation = () => {
-  const { villageId } = getCurrentUser()
+  // const { villageId } = getCurrentUser()
   const [day, setDay] = useState(1)
   const dispatch = useAppDispatch()
   const username = getCurrentUser()

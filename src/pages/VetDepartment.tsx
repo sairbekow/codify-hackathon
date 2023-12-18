@@ -14,7 +14,7 @@ const VetDepartment = () => {
         color='white'>
         МАЛ МҮЛКҮҢҮЗ ТУУРАЛУУ МААЛЫМАТ
       </Typography>
-      <Box sx={{ pl: 10 }}>
+      {/* <Box sx={{ pl: 10 }}>
         <Typography variant='h4' component='p' sx={{ mb: 5 }}>
           {username}
         </Typography>
@@ -25,7 +25,7 @@ const VetDepartment = () => {
           ЭГЕР МААЛЫМАТТАРЫҢЫЗДЫ ЖАҢЫЛООНУ КААЛАСАҢЫЗ ЖЕРГИЛИКТҮҮ ӨЗҮН-ӨЗҮ
           БАШКАРУУ ОРГАНЫНА КАЙРЫЛЫҢЫЗ.
         </Typography>
-      </Box>
+      </Box> */}
     </Box>
   ) : (
     <Box sx={{ pl: 5 }}>
@@ -41,19 +41,19 @@ const VetDepartment = () => {
           {username}
         </Typography>
         <Typography sx={{ mb: 5 }}>
-          УЙДУН САНЫ: <span>11</span>
+          {/* УЙДУН САНЫ: <span>11</span> */}
         </Typography>
         <Typography sx={{ mb: 5 }}>
-          ТОПОЗДУН САНЫ: <span>55</span>
+          {/* ТОПОЗДУН САНЫ: <span>55</span> */}
         </Typography>
         <Typography sx={{ mb: 5 }}>
-          КОЙДУН САНЫ: <span>12</span>
+          {/* КОЙДУН САНЫ: <span>12</span> */}
         </Typography>
         <Typography sx={{ mb: 5 }}>
-          ЭЧКИНИН САНЫ: <span>21</span>
+          {/* ЭЧКИНИН САНЫ: <span>21</span> */}
         </Typography>
         <Typography sx={{ mb: 5 }}>
-          ЖЫЛКЫНЫН САНЫ: <span>34</span>
+          {/* ЖЫЛКЫНЫН САНЫ: <span>34</span> */}
         </Typography>
         <Button variant='contained' size='large'>
           ДОКУМЕНТ ЖАРАТУУ

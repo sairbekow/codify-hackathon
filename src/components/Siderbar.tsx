@@ -6,6 +6,7 @@ import SideNavbar from './SideNavbar'
 const Wrapper = styled.div`
   height: 100%;
   padding: 30px;
+  /* min-width: 300px; */
   background: ${(props) => props.theme.colors.primary};
   color: ${(props) => props.theme.colors.white};
   display: flex;

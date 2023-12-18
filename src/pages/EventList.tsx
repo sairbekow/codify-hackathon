@@ -16,9 +16,11 @@ const Title = styled.h2`
 
 const Ul = styled.div`
   margin-top: 30px;
-  display: grid;
-  grid-template-columns: 30fr 30fr 30fr;
-  grid-gap: 25px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 25px;
 `
 
 const EventList = () => {

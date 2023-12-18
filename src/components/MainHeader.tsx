@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components'
 import HeaderNavbar from './HeaderNavbar'
 import HeaderBackgroundImage from '../assets/images/header_bg.jpg'
@@ -6,7 +5,6 @@ import personIcon from '../assets/icons/person.svg'
 import { Link, useNavigate } from 'react-router-dom'
 import { AppRoutes } from '../data/consts'
 import { getCurrentUser, removeCurrentUser } from '../utils/cookie'
-import { useAppSelector } from '../hooks/redux'
 
 const Wrapper = styled.div`
   width: 100%;

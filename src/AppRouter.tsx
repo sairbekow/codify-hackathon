@@ -30,7 +30,7 @@ const AppRouter = () => {
   return (
     <Routes>
       <Route path={AppRoutes.SIGNIN} element={<SignIn />} />
-      {isUserLogged && (
+      {/* {isUserLogged && ( */}
         <>
           <Route path={AppRoutes.HOME} element={<Home />}>
             <Route index element={<EventList />} />
@@ -79,7 +79,7 @@ const AppRouter = () => {
           </Route>
           <Route path='*' element={<h1 className='container'>404</h1>} />
         </>
-      )}
+      {/* )} */}
     </Routes>
   )
 }

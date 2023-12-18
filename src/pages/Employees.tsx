@@ -1,4 +1,3 @@
-import img1 from '../assets/images/event_1.jpeg'
 import Employee from '../components/Employee.tsx'
 import Box from '@mui/material/Box'
 import { useEffect, useState } from 'react'

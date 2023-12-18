@@ -1,9 +1,5 @@
 import Cookie from 'js-cookie'
-
-interface IUser {
-  pin: string
-  password: string
-}
+import { IUser, IUserResponse } from '../data/models'
 
 export const setUser = (user: IUser): void => {
   Cookie.set(user.pin, user.password, { expires: 365 })

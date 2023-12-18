@@ -37,11 +37,11 @@ export default function SignIn() {
     if (!pin || !password) return
 
     try {
-      const response = await login({
-        pin,
-        password,
-      })
-      dispatch(setUserData({user: response}))
+      // const response = await login({
+      //   pin,
+      //   password,
+      // })
+      // dispatch(setUserData({user: response}))
       navigate(AppRoutes.HOME)
     } catch (e: any) {
       console.log(e)
