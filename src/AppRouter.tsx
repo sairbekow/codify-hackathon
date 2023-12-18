@@ -24,13 +24,14 @@ import PasturePayment from './pages/PasturePayment.tsx'
 import Pasture from './pages/admin/pages/Pasture.tsx'
 import PastureList from './pages/admin/pages/PastureList.tsx'
 import PastureConfirm from './pages/admin/pages/PastureConfirm.tsx'
+import CreateEvent from './pages/admin/pages/CreateEvent.tsx'
 
 const AppRouter = () => {
   const isUserLogged = getCurrentUser()
   return (
     <Routes>
       <Route path={AppRoutes.SIGNIN} element={<SignIn />} />
-      {/* {isUserLogged && ( */}
+      {isUserLogged && (
         <>
           <Route path={AppRoutes.HOME} element={<Home />}>
             <Route index element={<EventList />} />
@@ -64,6 +65,7 @@ const AppRouter = () => {
               path={AppRoutes.IRRIGATIONS_REQUESTS}
               element={<IrrigationsRequests />}
             />
+            <Route path={AppRoutes.NEWS_CREATE} element={<CreateEvent />} />
             <Route path={AppRoutes.USERS} element={<Users />} />
             <Route path={AppRoutes.REGIONS} element={<Regions />} />
             <Route path={AppRoutes.PAYMENTS} element={<Payments />} />
@@ -79,7 +81,7 @@ const AppRouter = () => {
           </Route>
           <Route path='*' element={<h1 className='container'>404</h1>} />
         </>
-      {/* )} */}
+      )}
     </Routes>
   )
 }
