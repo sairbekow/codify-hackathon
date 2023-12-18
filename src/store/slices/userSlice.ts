@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { setCurrentUser } from '../../utils/cookie'
 
 interface IUserState {
   user: {
@@ -26,6 +27,7 @@ const userSlice = createSlice({
   reducers: {
     setUserData: (state: IUserState, action: PayloadAction<IUserState>) => {
       state.user = action.payload.user
+      setCurrentUser(action.payload.user.fullname);
     },
   },
 })

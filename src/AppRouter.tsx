@@ -27,7 +27,6 @@ import PastureConfirm from './pages/admin/pages/PastureConfirm.tsx'
 
 const AppRouter = () => {
   const isUserLogged = getCurrentUser()
-  console.log(isUserLogged)
   return (
     <Routes>
       <Route path={AppRoutes.SIGNIN} element={<SignIn />} />

@@ -57,7 +57,7 @@ export default function Admin() {
           <List component='nav'>
             <Link to={AppRoutes.ADMIN}>
               <ListItemButton>
-                <ListItemText primary='Суугатgit' />
+                <ListItemText primary='Суугат' />
               </ListItemButton>
             </Link>
             <Link to={AppRoutes.IRRIGATIONS_LIST_ADMIN}>

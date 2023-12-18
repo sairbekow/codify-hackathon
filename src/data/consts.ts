@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://localhost:5194/'
+export const BASE_URL = 'https://localhost:7076/'
 
 export enum AppRoutes {
   SIGNIN = '/',

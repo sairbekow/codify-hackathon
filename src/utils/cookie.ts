@@ -5,11 +5,6 @@ interface IUser {
   password: string
 }
 
-interface IUserResponse {
-  username: string
-  villageId: number
-}
-
 export const setUser = (user: IUser): void => {
   Cookie.set(user.pin, user.password, { expires: 365 })
 }
@@ -22,7 +17,7 @@ export const setCurrentUser = (username: string): void => {
   Cookie.set('current_user', username , { expires: 1 })
 }
 
-export const getCurrentUser = (): IUserResponse | undefined => {
+export const getCurrentUser = (): string | undefined => {
   return Cookie.get('current_user')
 }
 

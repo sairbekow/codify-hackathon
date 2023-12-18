@@ -1,8 +1,10 @@
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
+import { getCurrentUser } from '../utils/cookie'
 
 const VetDepartment = () => {
+  const username = getCurrentUser()
   return false ? (
     <Box sx={{ pl: 5 }}>
       <Typography
@@ -14,7 +16,7 @@ const VetDepartment = () => {
       </Typography>
       <Box sx={{ pl: 10 }}>
         <Typography variant='h4' component='p' sx={{ mb: 5 }}>
-          ТАШИЕВ ЭМИР САЛМООРБЕКОВИЧ
+          {username}
         </Typography>
         <Typography sx={{ mb: 5 }}>
           СИЗГЕ ТИЙИШТҮҮ МАЛ МҮЛКҮ ТАБЫЛГАН ЖОК.
@@ -36,7 +38,7 @@ const VetDepartment = () => {
       </Typography>
       <Box sx={{ pl: 10 }}>
         <Typography variant='h4' component='p' sx={{ mb: 5 }}>
-          ТАШИЕВ ЭМИР САЛМООРБЕКОВИЧ
+          {username}
         </Typography>
         <Typography sx={{ mb: 5 }}>
           УЙДУН САНЫ: <span>11</span>

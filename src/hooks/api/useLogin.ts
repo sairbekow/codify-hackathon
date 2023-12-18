@@ -4,7 +4,7 @@ import { http } from '../../utils/axios'
 import { QueryPath } from '../../data/consts'
 
 export default function useLogin() {
-  return useCallback(async (user) => {
+  return useCallback(async (user: any) => {
     setUser(user)
     const { data } = await http.post(QueryPath.USERS_SIGNIN, user)
     setCurrentUser(data.fullname)

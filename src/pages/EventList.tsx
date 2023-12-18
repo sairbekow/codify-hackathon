@@ -28,7 +28,6 @@ const EventList = () => {
   useEffect(() => {
     try {
       http.get(QueryPath.GET_ALL_EVENTS).then(({ data }) => {
-        console.log(data)
         dispatch(setEventData({ eventList: data }))
       })
     } catch (error) {
