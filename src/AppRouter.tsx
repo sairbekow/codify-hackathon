@@ -25,9 +25,11 @@ import Pasture from './pages/admin/pages/Pasture.tsx'
 import PastureList from './pages/admin/pages/PastureList.tsx'
 import PastureConfirm from './pages/admin/pages/PastureConfirm.tsx'
 import CreateEvent from './pages/admin/pages/CreateEvent.tsx'
+import { useSelector } from 'react-redux'
+import { RootState } from './store/index.ts'
 
 const AppRouter = () => {
-  const isUserLogged = getCurrentUser()
+  const isUserLogged = useSelector((state: RootState) => state.userState.isLoggedIn)
   return (
     <Routes>
       <Route path={AppRoutes.SIGNIN} element={<SignIn />} />

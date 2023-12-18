@@ -5,6 +5,8 @@ import personIcon from '../assets/icons/person.svg'
 import { Link, useNavigate } from 'react-router-dom'
 import { AppRoutes } from '../data/consts'
 import { getCurrentUser, removeCurrentUser } from '../utils/cookie'
+import { useSelector } from 'react-redux'
+import { RootState } from '../store'
 
 const Wrapper = styled.div`
   width: 100%;
@@ -29,6 +31,7 @@ const Line = styled.div`
 const MainHeader = () => {
   const navigate = useNavigate()
   const username = getCurrentUser()
+  const user = useSelector((state: RootState) => state.userState.user)
 
   const logout = () => {
     if (!username) return
@@ -36,7 +39,7 @@ const MainHeader = () => {
     const isUserSure = confirm('Сиз чыгууну каалайсызбы?')
 
     if (isUserSure) {
-      removeCurrentUser()
+      removeCurrentUser(user.pin)
       navigate(AppRoutes.SIGNIN)
     }
   }

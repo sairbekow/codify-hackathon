@@ -1,5 +1,9 @@
 import Cookie from 'js-cookie'
-import { IUser, IUserResponse } from '../data/models'
+
+export interface IUser {
+  pin: string
+  password: string
+}
 
 export const setUser = (user: IUser): void => {
   Cookie.set(user.pin, user.password, { expires: 365 })
@@ -17,6 +21,7 @@ export const getCurrentUser = (): string | undefined => {
   return Cookie.get('current_user')
 }
 
-export const removeCurrentUser = (): void => {
+export const removeCurrentUser = (pin: string): void => {
   Cookie.remove('current_user')
+  Cookie.remove(pin)
 }

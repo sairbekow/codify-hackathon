@@ -8,7 +8,8 @@ interface IUserState {
     villageId: number
     userType: string
     agriculturalLandId: number
-  }
+  },
+  isLoggedIn: boolean
 }
 
 const initialState: IUserState = {
@@ -19,6 +20,7 @@ const initialState: IUserState = {
     userType: '',
     agriculturalLandId: 0,
   },
+  isLoggedIn: false
 }
 
 const userSlice = createSlice({
@@ -28,6 +30,7 @@ const userSlice = createSlice({
     setUserData: (state: IUserState, action: PayloadAction<IUserState>) => {
       state.user = action.payload.user
       setCurrentUser(action.payload.user.fullname);
+      state.isLoggedIn = action.payload.isLoggedIn
     },
   },
 })

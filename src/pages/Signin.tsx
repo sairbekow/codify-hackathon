@@ -31,17 +31,17 @@ export default function SignIn() {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const data = new FormData(event.currentTarget)
-    const pin = data.get('pin')
-    const password = data.get('password')
+    const pin = data.get('pin')?.toString()
+    const password = data.get('password')?.toString()
 
     if (!pin || !password) return
 
     try {
-      // const response = await login({
-      //   pin,
-      //   password,
-      // })
-      // dispatch(setUserData({user: response}))
+      const response = await login({
+        pin,
+        password,
+      })
+      dispatch(setUserData({user: response, isLoggedIn: true}))
       navigate(AppRoutes.HOME)
     } catch (e: any) {
       console.log(e)
