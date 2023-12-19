@@ -18,7 +18,7 @@ const PasturePage = () => {
         color='white'>
         КҮЗГҮ ЖАЙЫТ АЯНТЫН АЛУУ ҮЧҮН СУРАМ ЖАРАТУУ
       </Typography>
-      {/* <Box sx={{ pl: 10, width: '90%' }}>
+      <Box sx={{ pl: 10, width: '90%' }}>
         <Typography variant='h4' component='p' sx={{ mb: 5 }}>
           {username}
         </Typography>
@@ -44,7 +44,7 @@ const PasturePage = () => {
             СУРАМ ЖӨНӨТҮҮ
           </Button>
         </Link>
-      </Box> */}
+      </Box>
     </Box>
   )
 }

@@ -27,11 +27,11 @@ interface ColumnData {
 type Sample = [number, string, string, number]
 
 const sample: readonly Sample[] = [
-  [20, 'Word', '16.02.2001 12:00', 400],
-  [20, 'Key', '16.02.2001 12:00', 300],
-  [20, 'Letter', '16.02.2001 12:00', 500],
-  [20, 'Note', '16.02.2001 12:00', 400],
-  [20, 'Print', '16.02.2001 12:00', 100],
+  [20, 'Erlan', '16.02.2001 12:00', 400],
+  [20, 'Symbat', '16.02.2001 12:00', 300],
+  [20, 'Kanykei', '16.02.2001 12:00', 500],
+  [20, 'Emirlan', '16.02.2001 12:00', 400],
+  [20, 'Meerim', '16.02.2001 12:00', 100],
 ]
 
 function createData(
