@@ -90,6 +90,11 @@ export default function Admin() {
                 <ListItemText primary='Жаңылык кошуу' />
               </ListItemButton>
             </Link>
+            <Link to={AppRoutes.NEWS_LIST}>
+              <ListItemButton>
+                <ListItemText primary='Жаңылыктардын тизмеси' />
+              </ListItemButton>
+            </Link>
           </List>
         </Drawer>
         <Box

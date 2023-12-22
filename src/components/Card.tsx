@@ -21,7 +21,7 @@ export default function Event({ id,title, image }: ICard) {
           <CardMedia
             component='img'
             height='140'
-            image={`data:image/png;base64, ${image}`}
+            image={image}
             alt='green iguana'
           />
           <CardContent>

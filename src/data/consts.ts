@@ -25,7 +25,8 @@ export enum AppRoutes {
   PASTURE_LIST_ADMIN = 'pasture-list',
   PASTURE_CONFIRM_ADMIN = 'pasture-confirm',
   COMPLAINS = 'complains',
-  NEWS_CREATE = 'news/create'
+  NEWS_CREATE = 'news/create',
+  NEWS_LIST = 'news/all',
 }
 
 export enum QueryPath {

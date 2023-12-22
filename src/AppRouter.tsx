@@ -9,7 +9,6 @@ import Regions from './pages/admin/pages/Regions.tsx'
 import Payments from './pages/admin/pages/Payments.tsx'
 import IrrigationsList from './pages/admin/pages/IrrigationsList.tsx'
 import IrrigationsRequests from './pages/admin/pages/IrrigationsRequests.tsx'
-import EventList from './pages/EventList'
 import VilageHistory from './pages/VilageHistory'
 import Contacts from './pages/Contacts'
 import Vacancies from './pages/Vacancies'
@@ -29,6 +28,8 @@ import EventCreate from './pages/admin/pages/EventCreate.tsx'
 import { useEffect } from 'react'
 import { setUserLoggedIn } from './store/slices/userSlice.ts'
 import { getCurrentUser } from './utils/cookie.ts'
+import AdminEventsList from './pages/admin/pages/EventsList.tsx'
+import EventList from './pages/EventList.tsx'
 
 const AppRouter = () => {
   const isUserLogged = useSelector(
@@ -80,6 +81,7 @@ const AppRouter = () => {
               element={<IrrigationsRequests />}
             />
             <Route path={AppRoutes.NEWS_CREATE} element={<EventCreate />} />
+            <Route path={AppRoutes.NEWS_LIST} element={<AdminEventsList />} />
             <Route path={AppRoutes.USERS} element={<Users />} />
             <Route path={AppRoutes.REGIONS} element={<Regions />} />
             <Route path={AppRoutes.PAYMENTS} element={<Payments />} />

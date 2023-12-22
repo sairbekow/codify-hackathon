@@ -1,15 +1,41 @@
 import { Button, TextField, Typography } from '@mui/material'
 import Box from '@mui/material/Box/Box'
 import { FormEvent, useState } from 'react'
+import { http } from '../../../utils/axios'
+import { QueryPath } from '../../../data/consts'
 
 const EventCreate = () => {
   const [title, setTitle] = useState<string>('')
   const [content, setContent] = useState<string>('')
-  const [image, setImage] = useState<string>('')
+  const [imageString, setImageString] = useState<string | ArrayBuffer | null>(
+    ''
+  )
+  const [image, setImage] = useState()
 
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    console.log(title, content, image)
+    const data = {
+      title: title,
+      content: content,
+      image: imageString,
+    }
+    console.log(data)
+    const response = await http.post(
+      QueryPath.CREATE_EVENT,
+      data
+    )
+    console.log(response)
+  }
+
+  async function getBaseUrl() {
+    var file = document.querySelector('input[type=file]')['files'][0]
+    var reader = new FileReader()
+    var baseString
+    reader.onloadend = function () {
+      baseString = reader.result
+      setImageString(reader.result)
+    }
+    reader.readAsDataURL(file)
   }
 
   return (
@@ -52,16 +78,12 @@ const EventCreate = () => {
           value={content}
           onChange={(event) => setContent(event.target.value)}
         />
-        <TextField
-          sx={{ mb: 2 }}
-          fullWidth
-          id='standard-basic'
-          variant='filled'
+        <input
+          style={{ marginBottom: '10px', width: '100%' }}
+          id='img'
           type='file'
-          onChange={(event) => {
-            const image = event.target.value
-            setImage(image.toString())
-          }}
+          accept='image/'
+          onChange={getBaseUrl}
         />
         <Button type='submit' variant='contained'>
           Send

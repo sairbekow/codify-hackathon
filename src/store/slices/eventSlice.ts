@@ -1,13 +1,15 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { Action, createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-interface IEvent {
-  id: 0
+export type EventId = number
+
+export interface IEvent {
+  id: number
   title: string
   content: string
   image: string
 }
 
-interface IEventState {
+export interface IEventState {
   eventList: IEvent[]
   currentEvent: IEvent
 }
@@ -32,9 +34,12 @@ const eventSlice = createSlice({
     setCurrentEvent: (state: IEventState, action: PayloadAction<IEvent>) => {
       state.currentEvent = action.payload
     },
+    removeEvent: (state: IEventState, action: PayloadAction<EventId>) => {
+      state.eventList = state.eventList.filter(event => event.id != action.payload)
+    }
   },
 })
 
-export const { setEventData, setCurrentEvent } = eventSlice.actions
+export const { setEventData, setCurrentEvent, removeEvent } = eventSlice.actions
 
 export default eventSlice

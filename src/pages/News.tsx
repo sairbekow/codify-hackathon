@@ -31,7 +31,7 @@ const News = () => {
           component='img'
           alt='green iguana'
           height='300'
-          image={`data:image/png;base64, ${newsData.image}`}
+          image={newsData.image}
         />
         <CardContent>
           <Typography gutterBottom variant='h5' component='div'>
