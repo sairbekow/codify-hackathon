@@ -36,6 +36,6 @@ export enum QueryPath {
   CREATE_EVENT = 'news/create',
   DELETE_EVENT = 'news/delete?id=',
   EMPLOYEE_GET_ALL = 'employee/getall',
-  ROUNDS_CONTROLLER = 'roundscotrolller/getForUser?villageId=',
+  ROUNDS_CONTROLLER_GETBYID = 'roundscotrolller/getForVillage?villageId=',
   ROUNDS_CONTROLLER_START = 'roundscotrolller/start',
 }

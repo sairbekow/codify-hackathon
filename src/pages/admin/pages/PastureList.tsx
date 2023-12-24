@@ -1,7 +1,21 @@
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
+import { useEffect, useState } from 'react'
+import { http } from '../../../utils/axios.ts'
+import { QueryPath } from '../../../data/consts.ts'
 
 const MyComponent = () => {
+  const [rounds, setRounds] = useState([])
+
+  useEffect(() => {
+    const fetchRounds = async () => {
+      const response = await http.get(`${QueryPath.ROUNDS_CONTROLLER_GETBYID}15`)
+      console.log(response)
+      setRounds(response.data)
+    }
+    fetchRounds()
+  }, [])
+
   return (
     <Box>
       <Typography
@@ -14,12 +28,12 @@ const MyComponent = () => {
       <Typography>
         БАРСКООН АЙЫЛ АЙМАГЫНА ТИЙИШТҮҮ ЖАЛПЫ 248 ГА ЖАЙЫТ АЯНТЫ БАР
       </Typography>
-      {[1, 2, 3].map((item) => (
+      {rounds.map((item) => (
         <Box key={item} sx={{ borderRadius: '5px', border: '1px solid gray', padding: '5px 15px', mt: '5px', mb: '5px' }}>
-          <Typography>СЫРТ ЖАЙЫТЫ</Typography>
-          <Typography>
-            ЖАЛПЫ АЯНТЫ: <span>20</span> ГА
-          </Typography>
+          <Typography>Title: {item.title}</Typography>
+          <Typography>Start Date: {item.startDate}</Typography>
+          <Typography>Village Id: {item.villageId}</Typography>
+          <Typography>Coast For An Hectare: {item.coastForAnHectare}</Typography>
         </Box>
       ))}
     </Box>

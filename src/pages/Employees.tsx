@@ -18,6 +18,7 @@ const Employees = () => {
   useEffect(() => {
     http.get<IEmployee[]>(QueryPath.EMPLOYEE_GET_ALL).then(({ data }) => {
       setEmployees(data)
+      console.log(data)
     })
   })
 
